@@ -1,0 +1,16 @@
+.customer-title{
+    color: red;
+    font-weight:bold;
+    font-size:20px;
+    position:absolute;
+    padding-left:30%;
+    padding-top:10px;
+
+}
+
+/**
+
+importante saber las dependencias de los estilos en css
+
+
+**/
