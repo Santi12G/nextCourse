@@ -1,7 +1,8 @@
-import { connectDB } from "../lib/mongodb";
-import { NextResponse } from "next/server";
+import { connectToDB } from "../lib/mongodb";
+import type { NextApiRequest, NextApiResponse } from "next";
 
-export async function GET() {
-  await connectDB();
-  return NextResponse.json({ ok: true });
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  const db = await connectToDB();
+  const usuarios = await db.collection("usuarios").find().toArray();
+  res.status(200).json(usuarios);
 }
