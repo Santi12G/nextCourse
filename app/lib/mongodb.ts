@@ -2,7 +2,7 @@
 import { MongoClient, Db } from "mongodb";
 
 const uri = "mongodb://localhost:27017"; // Puerto correcto de MongoDB
-const dbName = "mi_basededatos";
+const dbName = "appDB";
 
 let cachedClient: MongoClient | null = null;
 let cachedDb: Db | null = null;
@@ -14,7 +14,7 @@ export async function connectToDB(): Promise<Db> {
   }
 
   const client = new MongoClient(uri);
-  await client.connect(); // ⚡ se conecta solo una vez
+  await client.connect(); 
   const db = client.db(dbName);
 
   cachedClient = client;
